@@ -1,0 +1,6 @@
+FROM quay.io/flysangel/image:alpine.base
+RUN \
+  apk update && \
+  apk add --no-cache mysql-client
+COPY bin/logger/log_server /bin
+CMD ["/bin/bash", "-c", "/bin/log_server"]
